@@ -5,21 +5,21 @@
 class Gs < Formula
   desc "A small, opinionated stacked-diff tool for git."
   homepage "https://gitstack.sh"
-  version "0.2.2"
+  version "0.2.3"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.2/gitstack_0.2.2_darwin_amd64.tar.gz"
-      sha256 "dd164ebf6e22fda8668bb0cbcedd991ae8a8715d4d1a7197da5aa32c3f63043b"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.3/gitstack_0.2.3_darwin_amd64.tar.gz"
+      sha256 "4ac8664ef574fdce47bf033fe9a293fa9858cd78b64414e70e0e7694f1a7158a"
 
       define_method(:install) do
         bin.install "gs"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.2/gitstack_0.2.2_darwin_arm64.tar.gz"
-      sha256 "0cd24d837ab9ba49de6b07d767bec0aee141bca3622c2a18c50c19a65d7c85de"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.3/gitstack_0.2.3_darwin_arm64.tar.gz"
+      sha256 "75065bf6927c5fbe6c8f06a89b5a3d0a3eb982e259f2df3167a267168773002f"
 
       define_method(:install) do
         bin.install "gs"
@@ -29,19 +29,29 @@ class Gs < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.2/gitstack_0.2.2_linux_amd64.tar.gz"
-      sha256 "a70a257b8c726084a5c6fb5c757db0dc0cb1b0e70b5f32cd9c1312ee4bc5a598"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.3/gitstack_0.2.3_linux_amd64.tar.gz"
+      sha256 "5abcb0a9ebefcae54d8fc221b1458c46221f208f6ad3647671a73655357d9196"
       define_method(:install) do
         bin.install "gs"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.2/gitstack_0.2.2_linux_arm64.tar.gz"
-      sha256 "f3a5b14e646cb5d17e943a093c5613232b93cca0a1288453b8a5f82d23828b38"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.2.3/gitstack_0.2.3_linux_arm64.tar.gz"
+      sha256 "5476ef5f741bc70ffea0d3ceb514dd38878b6b819117573a4c26c98245c37263"
       define_method(:install) do
         bin.install "gs"
       end
     end
+  end
+
+  conflicts_with "ghostscript"
+
+  def caveats
+    <<~EOS
+      GitStack installs `gs`, which shares a name with Ghostscript's `gs`.
+      If you also need Ghostscript, install GitStack via the script instead:
+        curl -fsSL https://gitstack.sh/install.sh | sh
+    EOS
   end
 
   test do
