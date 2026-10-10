@@ -5,21 +5,21 @@
 class Gs < Formula
   desc "A small, opinionated stacked-diff tool for git."
   homepage "https://gitstack.sh"
-  version "0.7.5"
+  version "0.8.0"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.7.5/gitstack_0.7.5_darwin_amd64.tar.gz"
-      sha256 "6a09af898e205e1195f98a9fb2a45b777e1c6e476b74d4d21e42a8f52369d1dc"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.8.0/gitstack_0.8.0_darwin_amd64.tar.gz"
+      sha256 "f81ddef4fb9b7f198579c7efa71b965ec7df35629b1ff2a03aca06a87330db26"
 
       define_method(:install) do
         bin.install "gs"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.7.5/gitstack_0.7.5_darwin_arm64.tar.gz"
-      sha256 "7019ff59a8cc5e708c76d4228d6eab4c768a871f684a640f9881f7b7709e5623"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.8.0/gitstack_0.8.0_darwin_arm64.tar.gz"
+      sha256 "8313fe088a7c9e4dd74949017285b63ff30754a4388e9eb4656353e68a95204b"
 
       define_method(:install) do
         bin.install "gs"
@@ -29,15 +29,15 @@ class Gs < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.7.5/gitstack_0.7.5_linux_amd64.tar.gz"
-      sha256 "ceb56519d6a40feea2ee7735090cbc9a350afd50f0ec74765474dbba809cfd5a"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.8.0/gitstack_0.8.0_linux_amd64.tar.gz"
+      sha256 "81b75e1bdb1c91503912b4071d07ab0986f8f6921f54b729fd35e360170eb3af"
       define_method(:install) do
         bin.install "gs"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.7.5/gitstack_0.7.5_linux_arm64.tar.gz"
-      sha256 "ca3d14c5aadc59dacb8ce2c0facb76eac2ecf979d4f02d8cce0b9416826db721"
+      url "https://github.com/alethi-dev/gitstack-releases/releases/download/v0.8.0/gitstack_0.8.0_linux_arm64.tar.gz"
+      sha256 "20f23a420846c99452f4231002121b8f48abb1682cf69a556c2f614826d59e77"
       define_method(:install) do
         bin.install "gs"
       end
